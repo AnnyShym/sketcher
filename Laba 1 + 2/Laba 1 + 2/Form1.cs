@@ -10,7 +10,6 @@ using System.Windows.Forms;
 
 namespace Laba_1___2
 {
-
      public partial class fMain : Form
      {
 
@@ -34,7 +33,21 @@ namespace Laba_1___2
 
           private void ShowFigures()
           {
+
+               ListOfFigures.AddFigure(new Line(100, 200, 250, 200));
+               ListOfFigures.AddFigure(new Rectangle(350, 150, 200, 100));
+               ListOfFigures.AddFigure(new Square(650, 125, 150));
+               ListOfFigures.AddFigure(new Triangle(100, 490, 250, 490, 175, 340));
+               ListOfFigures.AddFigure(new Ellipse(350, 375, 200, 100));
+               ListOfFigures.AddFigure(new Circle(650, 350, 150));
+
+               foreach (Figure figure in ListOfFigures.list)
+               {
+                    figure.Draw();
+               }
+
                pbSketchingArea.Image = bitmap;
+
           }
 
      }

@@ -63,6 +63,16 @@ namespace Laba_1___2.Properties {
         /// <summary>
         ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap _633 {
+            get {
+                object obj = ResourceManager.GetObject("633", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap _8f37e2d4_f473_11df_a257_00151787ad21_resize1 {
             get {
                 object obj = ResourceManager.GetObject("8f37e2d4-f473-11df-a257-00151787ad21.resize1", resourceCulture);
@@ -76,6 +86,86 @@ namespace Laba_1___2.Properties {
         internal static System.Drawing.Bitmap _9915829 {
             get {
                 object obj = ResourceManager.GetObject("9915829", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap bumag101 {
+            get {
+                object obj = ResourceManager.GetObject("bumag101", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap drawing_pad_1209779_1280 {
+            get {
+                object obj = ResourceManager.GetObject("drawing-pad-1209779_1280", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap drawing_pad_1209781_1280 {
+            get {
+                object obj = ResourceManager.GetObject("drawing-pad-1209781_1280", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap drawing_pad_1209781_12801 {
+            get {
+                object obj = ResourceManager.GetObject("drawing-pad-1209781_12801", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap drawing_pad_1209781_12802 {
+            get {
+                object obj = ResourceManager.GetObject("drawing-pad-1209781_12802", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap drawing_pad_1209781_640 {
+            get {
+                object obj = ResourceManager.GetObject("drawing-pad-1209781_640", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap drawing_pad_1209781_6401 {
+            get {
+                object obj = ResourceManager.GetObject("drawing-pad-1209781_6401", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap notebook_texture2464 {
+            get {
+                object obj = ResourceManager.GetObject("notebook_texture2464", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

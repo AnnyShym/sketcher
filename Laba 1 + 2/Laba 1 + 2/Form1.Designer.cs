@@ -36,11 +36,12 @@
                // pbSketchingArea
                // 
                this.pbSketchingArea.BackColor = System.Drawing.SystemColors.ControlLightLight;
-               this.pbSketchingArea.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+               this.pbSketchingArea.BackgroundImage = global::Laba_1___2.Properties.Resources.drawing_pad_1209781_12802;
+               this.pbSketchingArea.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
                this.pbSketchingArea.Dock = System.Windows.Forms.DockStyle.Fill;
                this.pbSketchingArea.Location = new System.Drawing.Point(0, 0);
                this.pbSketchingArea.Name = "pbSketchingArea";
-               this.pbSketchingArea.Size = new System.Drawing.Size(793, 544);
+               this.pbSketchingArea.Size = new System.Drawing.Size(922, 721);
                this.pbSketchingArea.TabIndex = 0;
                this.pbSketchingArea.TabStop = false;
                // 
@@ -48,7 +49,8 @@
                // 
                this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 23F);
                this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-               this.ClientSize = new System.Drawing.Size(793, 544);
+               this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+               this.ClientSize = new System.Drawing.Size(922, 721);
                this.Controls.Add(this.pbSketchingArea);
                this.Cursor = System.Windows.Forms.Cursors.Default;
                this.Font = new System.Drawing.Font("Poor Richard", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));

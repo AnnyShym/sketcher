@@ -55,6 +55,7 @@
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
     <Compile Include="Line.cs" />
+    <Compile Include="ListOfFigures.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Rectangle.cs" />
@@ -88,6 +89,33 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\9915829.jpeg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\notebook_texture2464.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\633.jpeg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\bumag101.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\drawing-pad-1209781_1280.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\drawing-pad-1209781_640.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\drawing-pad-1209781_12801.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\drawing-pad-1209781_6401.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\drawing-pad-1209781_12802.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\drawing-pad-1209779_1280.jpg" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

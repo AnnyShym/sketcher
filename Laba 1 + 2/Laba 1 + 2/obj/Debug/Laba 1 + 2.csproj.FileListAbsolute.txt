@@ -1,7 +1,6 @@
 C:\Users\User\Desktop\4 сем\ООТПиСП\Лабы\1 + 2\Laba 1 + 2\Laba 1 + 2\bin\Debug\Laba 1 + 2.exe.config
 C:\Users\User\Desktop\4 сем\ООТПиСП\Лабы\1 + 2\Laba 1 + 2\Laba 1 + 2\bin\Debug\Laba 1 + 2.exe
 C:\Users\User\Desktop\4 сем\ООТПиСП\Лабы\1 + 2\Laba 1 + 2\Laba 1 + 2\bin\Debug\Laba 1 + 2.pdb
-C:\Users\User\Desktop\4 сем\ООТПиСП\Лабы\1 + 2\Laba 1 + 2\Laba 1 + 2\obj\Debug\Laba 1 + 2.csprojResolveAssemblyReference.cache
 C:\Users\User\Desktop\4 сем\ООТПиСП\Лабы\1 + 2\Laba 1 + 2\Laba 1 + 2\obj\Debug\Laba_1___2.fMain.resources
 C:\Users\User\Desktop\4 сем\ООТПиСП\Лабы\1 + 2\Laba 1 + 2\Laba 1 + 2\obj\Debug\Laba_1___2.Properties.Resources.resources
 C:\Users\User\Desktop\4 сем\ООТПиСП\Лабы\1 + 2\Laba 1 + 2\Laba 1 + 2\obj\Debug\Laba 1 + 2.csproj.GenerateResource.Cache
