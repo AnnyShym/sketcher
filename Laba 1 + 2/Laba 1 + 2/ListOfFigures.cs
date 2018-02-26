@@ -9,18 +9,17 @@ namespace Laba_1___2
      static class ListOfFigures
      {
 
-          public static List<Figure> list = new List<Figure>();
+          static List<Figure> list = new List<Figure>();
 
           public static void AddFigure(Figure figure)
           {
                list.Add(figure);
           }
 
-          //public static List<Figure> Show()
-          //{
-          //     return list;
-          //}
-
+          public static List<Figure> Expand()
+          {
+               return list;
+          }
 
      }
 }

@@ -41,7 +41,7 @@ namespace Laba_1___2
                ListOfFigures.AddFigure(new Ellipse(350, 375, 200, 100));
                ListOfFigures.AddFigure(new Circle(650, 350, 150));
 
-               foreach (Figure figure in ListOfFigures.list)
+               foreach (Figure figure in ListOfFigures.Expand())
                {
                     figure.Draw();
                }
