@@ -121,4 +121,7 @@
   <data name="8f37e2d4-f473-11df-a257-00151787ad21.resize1" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\8f37e2d4-f473-11df-a257-00151787ad21.resize1.jpeg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="9915829" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\9915829.jpeg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
 </root>
