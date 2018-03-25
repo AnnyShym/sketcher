@@ -67,6 +67,7 @@ namespace Laba_1___2
 
                openFileDialog.Title = "Open Background";
                openFileDialog.Filter = "bmp files (*.bmp)|*.bmp|jpg files (*.jpg)|*.jpg|jpeg files (*.jpeg)|*.jpeg|png files (*.png)|*.png|gif files (*.gif)|*.gif";
+               openFileDialog.FilterIndex = 1;
 
                if (openFileDialog.ShowDialog() == DialogResult.OK)
                {
@@ -83,14 +84,41 @@ namespace Laba_1___2
 
                saveFileDialog.Title = "Save Picture";
                saveFileDialog.Filter = "bmp files (*.bmp)|*.bmp|jpg files (*.jpg)|*.jpg|jpeg files (*.jpeg)|*.jpeg|png files (*.png)|*.png|gif files (*.gif)|*.gif";
+               saveFileDialog.FilterIndex = 1;
 
                if (saveFileDialog.ShowDialog() == DialogResult.OK)
                {
-                    bitmap.Save(saveFileDialog.FileName, ImageFormat.Bmp);
+
+                    switch(saveFileDialog.FilterIndex)
+                    {
+
+                         case 1:
+                              bitmap.Save(saveFileDialog.FileName, ImageFormat.Bmp);
+                              break;
+
+                         case 2:
+                              bitmap.Save(saveFileDialog.FileName, ImageFormat.Jpeg);
+                              break;
+
+                         case 3:
+                              bitmap.Save(saveFileDialog.FileName, ImageFormat.Jpeg);
+                              break;
+
+                         case 4:
+                              bitmap.Save(saveFileDialog.FileName, ImageFormat.Png);
+                              break;
+
+                         case 5:
+                              bitmap.Save(saveFileDialog.FileName, ImageFormat.Gif);
+                              break;
+
+                    }
+
                }
 
                saveFileDialog.Dispose();
 
           }
+
      }
 }
