@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.Drawing.Imaging;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -26,7 +27,7 @@ namespace Laba_1___2
 
           private void InitializeDrawingArea()
           {
-               bitmap = new Bitmap(pbSketchingArea.Width, pbSketchingArea.Height);
+               bitmap = new Bitmap(Properties.Resources.drawing_pad_1209781_12802, pbSketchingArea.Width, pbSketchingArea.Height);
                graphics = Graphics.FromImage(bitmap);
                pen = new Pen(Color.DarkRed, 2);
           }
@@ -55,8 +56,40 @@ namespace Laba_1___2
                Application.Exit();
           }
 
-          private void menuStrip_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
+          private void newToolStripMenuItem_Click(object sender, EventArgs e)
           {
+               bitmap = new Bitmap(pbSketchingArea.Width, pbSketchingArea.Height);
+               pbSketchingArea.Image = bitmap;
+          }
+
+          private void openToolStripMenuItem_Click(object sender, EventArgs e)
+          {
+
+               openFileDialog.Title = "Open Background";
+               openFileDialog.Filter = "bmp files (*.bmp)|*.bmp|jpg files (*.jpg)|*.jpg|jpeg files (*.jpeg)|*.jpeg|png files (*.png)|*.png|gif files (*.gif)|*.gif";
+
+               if (openFileDialog.ShowDialog() == DialogResult.OK)
+               {
+                    bitmap = new Bitmap(openFileDialog.FileName);
+                    pbSketchingArea.Image = bitmap;
+               }
+               
+               openFileDialog.Dispose();
+
+          }
+
+          private void saveAsToolStripMenuItem_Click(object sender, EventArgs e)
+          {
+
+               saveFileDialog.Title = "Save Picture";
+               saveFileDialog.Filter = "bmp files (*.bmp)|*.bmp|jpg files (*.jpg)|*.jpg|jpeg files (*.jpeg)|*.jpeg|png files (*.png)|*.png|gif files (*.gif)|*.gif";
+
+               if (saveFileDialog.ShowDialog() == DialogResult.OK)
+               {
+                    bitmap.Save(saveFileDialog.FileName, ImageFormat.Bmp);
+               }
+
+               saveFileDialog.Dispose();
 
           }
      }

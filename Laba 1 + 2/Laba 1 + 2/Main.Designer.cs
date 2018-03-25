@@ -59,7 +59,6 @@
                // pbSketchingArea
                // 
                this.pbSketchingArea.BackColor = System.Drawing.SystemColors.ControlLightLight;
-               this.pbSketchingArea.BackgroundImage = global::Laba_1___2.Properties.Resources.drawing_pad_1209781_12802;
                this.pbSketchingArea.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
                this.pbSketchingArea.Dock = System.Windows.Forms.DockStyle.Fill;
                this.pbSketchingArea.Location = new System.Drawing.Point(0, 31);
@@ -90,8 +89,6 @@
                this.menuStrip.Name = "menuStrip";
                this.menuStrip.Size = new System.Drawing.Size(922, 31);
                this.menuStrip.TabIndex = 1;
-               this.menuStrip.Text = "menuStrip1";
-               this.menuStrip.ItemClicked += new System.Windows.Forms.ToolStripItemClickedEventHandler(this.menuStrip_ItemClicked);
                // 
                // fileToolStripMenuItem
                // 
@@ -115,6 +112,7 @@
                this.newToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.N)));
                this.newToolStripMenuItem.Size = new System.Drawing.Size(194, 26);
                this.newToolStripMenuItem.Text = "New";
+               this.newToolStripMenuItem.Click += new System.EventHandler(this.newToolStripMenuItem_Click);
                // 
                // openToolStripMenuItem
                // 
@@ -123,6 +121,7 @@
                this.openToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.O)));
                this.openToolStripMenuItem.Size = new System.Drawing.Size(194, 26);
                this.openToolStripMenuItem.Text = "Open";
+               this.openToolStripMenuItem.Click += new System.EventHandler(this.openToolStripMenuItem_Click);
                // 
                // saveAsToolStripMenuItem
                // 
@@ -131,6 +130,7 @@
                this.saveAsToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.S)));
                this.saveAsToolStripMenuItem.Size = new System.Drawing.Size(194, 26);
                this.saveAsToolStripMenuItem.Text = "Save As...";
+               this.saveAsToolStripMenuItem.Click += new System.EventHandler(this.saveAsToolStripMenuItem_Click);
                // 
                // quitToolStripMenuItem
                // 
@@ -155,7 +155,7 @@
                this.undoToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("undoToolStripMenuItem.Image")));
                this.undoToolStripMenuItem.Name = "undoToolStripMenuItem";
                this.undoToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.Z)));
-               this.undoToolStripMenuItem.Size = new System.Drawing.Size(171, 26);
+               this.undoToolStripMenuItem.Size = new System.Drawing.Size(181, 26);
                this.undoToolStripMenuItem.Text = "Undo";
                // 
                // redoToolStripMenuItem
@@ -163,7 +163,7 @@
                this.redoToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("redoToolStripMenuItem.Image")));
                this.redoToolStripMenuItem.Name = "redoToolStripMenuItem";
                this.redoToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.Y)));
-               this.redoToolStripMenuItem.Size = new System.Drawing.Size(171, 26);
+               this.redoToolStripMenuItem.Size = new System.Drawing.Size(181, 26);
                this.redoToolStripMenuItem.Text = "Redo";
                // 
                // freeToolStripMenuItem
@@ -232,7 +232,7 @@
                // 
                this.colorToolStripMenuItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
                this.colorToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("colorToolStripMenuItem.Image")));
-               this.colorToolStripMenuItem.Margin = new System.Windows.Forms.Padding(180, 0, 0, 0);
+               this.colorToolStripMenuItem.Margin = new System.Windows.Forms.Padding(230, 0, 0, 0);
                this.colorToolStripMenuItem.Name = "colorToolStripMenuItem";
                this.colorToolStripMenuItem.Padding = new System.Windows.Forms.Padding(4, 0, 10, 0);
                this.colorToolStripMenuItem.Size = new System.Drawing.Size(38, 27);
@@ -240,9 +240,10 @@
                // widthToolStripMenuItem
                // 
                this.widthToolStripMenuItem.AccessibleDescription = "Line Width";
+               this.widthToolStripMenuItem.AutoSize = false;
                this.widthToolStripMenuItem.Name = "widthToolStripMenuItem";
                this.widthToolStripMenuItem.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
-               this.widthToolStripMenuItem.Size = new System.Drawing.Size(40, 27);
+               this.widthToolStripMenuItem.Size = new System.Drawing.Size(30, 27);
                this.widthToolStripMenuItem.Text = "2";
                this.widthToolStripMenuItem.TextBoxTextAlign = System.Windows.Forms.HorizontalAlignment.Center;
                this.widthToolStripMenuItem.ToolTipText = "Line Width";
