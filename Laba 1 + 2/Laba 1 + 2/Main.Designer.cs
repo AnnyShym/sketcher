@@ -45,13 +45,18 @@
             this.rectangleToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.squareToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.rhombusToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.впToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.colorToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.widthToolStripMenuItem = new System.Windows.Forms.ToolStripTextBox();
             this.colorDialog = new System.Windows.Forms.ColorDialog();
             this.openFileDialog = new System.Windows.Forms.OpenFileDialog();
             this.saveFileDialog = new System.Windows.Forms.SaveFileDialog();
             this.pbSketchingArea = new System.Windows.Forms.PictureBox();
+            this.labelX = new System.Windows.Forms.Label();
+            this.labelXValue = new System.Windows.Forms.Label();
+            this.labelYValue = new System.Windows.Forms.Label();
+            this.labelY = new System.Windows.Forms.Label();
+            this.labelColor = new System.Windows.Forms.Label();
+            this.labelFigureType = new System.Windows.Forms.Label();
             this.menuStrip.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbSketchingArea)).BeginInit();
             this.SuspendLayout();
@@ -59,6 +64,7 @@
             // menuStrip
             // 
             this.menuStrip.BackColor = System.Drawing.SystemColors.Window;
+            this.menuStrip.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.menuStrip.ImageScalingSize = new System.Drawing.Size(20, 20);
             this.menuStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.fileToolStripMenuItem,
@@ -70,7 +76,6 @@
             this.rectangleToolStripMenuItem,
             this.squareToolStripMenuItem1,
             this.rhombusToolStripMenuItem,
-            this.впToolStripMenuItem,
             this.colorToolStripMenuItem,
             this.widthToolStripMenuItem});
             this.menuStrip.LayoutStyle = System.Windows.Forms.ToolStripLayoutStyle.HorizontalStackWithOverflow;
@@ -145,7 +150,7 @@
             this.undoToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("undoToolStripMenuItem.Image")));
             this.undoToolStripMenuItem.Name = "undoToolStripMenuItem";
             this.undoToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.Z)));
-            this.undoToolStripMenuItem.Size = new System.Drawing.Size(171, 26);
+            this.undoToolStripMenuItem.Size = new System.Drawing.Size(181, 26);
             this.undoToolStripMenuItem.Text = "Undo";
             // 
             // redoToolStripMenuItem
@@ -154,7 +159,7 @@
             this.redoToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("redoToolStripMenuItem.Image")));
             this.redoToolStripMenuItem.Name = "redoToolStripMenuItem";
             this.redoToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.Y)));
-            this.redoToolStripMenuItem.Size = new System.Drawing.Size(171, 26);
+            this.redoToolStripMenuItem.Size = new System.Drawing.Size(181, 26);
             this.redoToolStripMenuItem.Text = "Redo";
             // 
             // freeToolStripMenuItem
@@ -227,12 +232,6 @@
             this.rhombusToolStripMenuItem.Tag = "rhombus";
             this.rhombusToolStripMenuItem.Click += new System.EventHandler(this.rhombusToolStripMenuItem_Click);
             // 
-            // впToolStripMenuItem
-            // 
-            this.впToolStripMenuItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.впToolStripMenuItem.Name = "впToolStripMenuItem";
-            this.впToolStripMenuItem.Size = new System.Drawing.Size(12, 27);
-            // 
             // colorToolStripMenuItem
             // 
             this.colorToolStripMenuItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
@@ -249,7 +248,7 @@
             this.widthToolStripMenuItem.AutoSize = false;
             this.widthToolStripMenuItem.Name = "widthToolStripMenuItem";
             this.widthToolStripMenuItem.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
-            this.widthToolStripMenuItem.Size = new System.Drawing.Size(30, 27);
+            this.widthToolStripMenuItem.Size = new System.Drawing.Size(27, 27);
             this.widthToolStripMenuItem.Text = "2";
             this.widthToolStripMenuItem.TextBoxTextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.widthToolStripMenuItem.ToolTipText = "Line Width";
@@ -257,8 +256,9 @@
             // 
             // colorDialog
             // 
-            this.colorDialog.AllowFullOpen = false;
             this.colorDialog.AnyColor = true;
+            this.colorDialog.Color = System.Drawing.Color.DarkRed;
+            this.colorDialog.FullOpen = true;
             // 
             // openFileDialog
             // 
@@ -268,7 +268,8 @@
             // 
             this.pbSketchingArea.BackColor = System.Drawing.SystemColors.ControlLightLight;
             this.pbSketchingArea.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.pbSketchingArea.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pbSketchingArea.Cursor = System.Windows.Forms.Cursors.Cross;
+            this.pbSketchingArea.Dock = System.Windows.Forms.DockStyle.Top;
             this.pbSketchingArea.Location = new System.Drawing.Point(0, 31);
             this.pbSketchingArea.Name = "pbSketchingArea";
             this.pbSketchingArea.Size = new System.Drawing.Size(922, 690);
@@ -276,15 +277,95 @@
             this.pbSketchingArea.TabStop = false;
             this.pbSketchingArea.Paint += new System.Windows.Forms.PaintEventHandler(this.pbSketchingArea_Paint);
             this.pbSketchingArea.MouseDown += new System.Windows.Forms.MouseEventHandler(this.pbSketchingArea_MouseDown);
+            this.pbSketchingArea.MouseLeave += new System.EventHandler(this.pbSketchingArea_MouseLeave);
             this.pbSketchingArea.MouseMove += new System.Windows.Forms.MouseEventHandler(this.pbSketchingArea_MouseMove);
             this.pbSketchingArea.MouseUp += new System.Windows.Forms.MouseEventHandler(this.pbSketchingArea_MouseUp);
+            // 
+            // labelX
+            // 
+            this.labelX.BackColor = System.Drawing.Color.Transparent;
+            this.labelX.Dock = System.Windows.Forms.DockStyle.Left;
+            this.labelX.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.labelX.Location = new System.Drawing.Point(0, 721);
+            this.labelX.Name = "labelX";
+            this.labelX.Padding = new System.Windows.Forms.Padding(5, 2, 0, 5);
+            this.labelX.Size = new System.Drawing.Size(31, 33);
+            this.labelX.TabIndex = 2;
+            this.labelX.Text = "x :";
+            this.labelX.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // labelXValue
+            // 
+            this.labelXValue.BackColor = System.Drawing.Color.Transparent;
+            this.labelXValue.Dock = System.Windows.Forms.DockStyle.Left;
+            this.labelXValue.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelXValue.Location = new System.Drawing.Point(31, 721);
+            this.labelXValue.Name = "labelXValue";
+            this.labelXValue.Size = new System.Drawing.Size(35, 33);
+            this.labelXValue.TabIndex = 3;
+            this.labelXValue.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // labelYValue
+            // 
+            this.labelYValue.BackColor = System.Drawing.Color.Transparent;
+            this.labelYValue.Dock = System.Windows.Forms.DockStyle.Left;
+            this.labelYValue.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelYValue.Location = new System.Drawing.Point(97, 721);
+            this.labelYValue.Name = "labelYValue";
+            this.labelYValue.Size = new System.Drawing.Size(35, 33);
+            this.labelYValue.TabIndex = 5;
+            this.labelYValue.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // labelY
+            // 
+            this.labelY.BackColor = System.Drawing.Color.Transparent;
+            this.labelY.Dock = System.Windows.Forms.DockStyle.Left;
+            this.labelY.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.labelY.Location = new System.Drawing.Point(66, 721);
+            this.labelY.Name = "labelY";
+            this.labelY.Padding = new System.Windows.Forms.Padding(5, 0, 0, 5);
+            this.labelY.Size = new System.Drawing.Size(31, 33);
+            this.labelY.TabIndex = 4;
+            this.labelY.Text = "y :";
+            this.labelY.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // labelColor
+            // 
+            this.labelColor.BackColor = System.Drawing.Color.Transparent;
+            this.labelColor.Dock = System.Windows.Forms.DockStyle.Right;
+            this.labelColor.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelColor.Location = new System.Drawing.Point(839, 721);
+            this.labelColor.Name = "labelColor";
+            this.labelColor.Padding = new System.Windows.Forms.Padding(5, 5, 0, 5);
+            this.labelColor.Size = new System.Drawing.Size(83, 33);
+            this.labelColor.TabIndex = 6;
+            this.labelColor.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // labelFigureType
+            // 
+            this.labelFigureType.BackColor = System.Drawing.Color.Transparent;
+            this.labelFigureType.Dock = System.Windows.Forms.DockStyle.Right;
+            this.labelFigureType.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelFigureType.Location = new System.Drawing.Point(755, 721);
+            this.labelFigureType.Name = "labelFigureType";
+            this.labelFigureType.Padding = new System.Windows.Forms.Padding(5, 3, 0, 5);
+            this.labelFigureType.Size = new System.Drawing.Size(84, 33);
+            this.labelFigureType.TabIndex = 7;
+            this.labelFigureType.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // fMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 23F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.SystemColors.ControlLightLight;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.ClientSize = new System.Drawing.Size(922, 721);
+            this.ClientSize = new System.Drawing.Size(922, 754);
+            this.Controls.Add(this.labelFigureType);
+            this.Controls.Add(this.labelColor);
+            this.Controls.Add(this.labelYValue);
+            this.Controls.Add(this.labelY);
+            this.Controls.Add(this.labelXValue);
+            this.Controls.Add(this.labelX);
             this.Controls.Add(this.pbSketchingArea);
             this.Controls.Add(this.menuStrip);
             this.Cursor = System.Windows.Forms.Cursors.Default;
@@ -324,13 +405,18 @@
           private System.Windows.Forms.ToolStripMenuItem rectangleToolStripMenuItem;
           private System.Windows.Forms.ToolStripMenuItem squareToolStripMenuItem1;
           private System.Windows.Forms.ToolStripMenuItem rhombusToolStripMenuItem;
-          private System.Windows.Forms.ToolStripMenuItem впToolStripMenuItem;
           private System.Windows.Forms.ToolStripMenuItem freeToolStripMenuItem;
           private System.Windows.Forms.ToolStripMenuItem colorToolStripMenuItem;
           private System.Windows.Forms.ColorDialog colorDialog;
           private System.Windows.Forms.OpenFileDialog openFileDialog;
           private System.Windows.Forms.SaveFileDialog saveFileDialog;
           private System.Windows.Forms.ToolStripTextBox widthToolStripMenuItem;
-     }
+        private System.Windows.Forms.Label labelX;
+        private System.Windows.Forms.Label labelXValue;
+        private System.Windows.Forms.Label labelYValue;
+        private System.Windows.Forms.Label labelY;
+        private System.Windows.Forms.Label labelColor;
+        private System.Windows.Forms.Label labelFigureType;
+    }
 }
 

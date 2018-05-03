@@ -31,7 +31,9 @@ namespace Laba_1___2
 
             InitializeComponent();
             InitializeDrawingArea();
+
             pen = new Pen(color, thickness);
+            labelColor.Text = ConvertToHex(color);
 
             ShowFigures();
 
@@ -53,6 +55,11 @@ namespace Laba_1___2
 
         }
 
+        private string ConvertToHex(Color c)
+        {
+            return "#" + c.R.ToString("X2") + c.G.ToString("X2") + c.B.ToString("X2");
+        }
+
         private void InitializeWorkingArea()
         {
 
@@ -63,6 +70,9 @@ namespace Laba_1___2
             color = standardColor;
             thickness = standardThickness;
             pen = new Pen(color, thickness);
+
+            labelFigureType.Text = "";
+            labelColor.Text = ConvertToHex(color);
 
         }
 
@@ -161,6 +171,9 @@ namespace Laba_1___2
         private void pbSketchingArea_MouseMove(object sender, MouseEventArgs e)
         {
 
+            labelXValue.Text = Convert.ToString(e.X);
+            labelYValue.Text = Convert.ToString(e.Y);
+
             if (mouseIsDown)
             {
 
@@ -196,36 +209,43 @@ namespace Laba_1___2
         private void freeToolStripMenuItem_Click(object sender, EventArgs e)
         {
             figureType = 1;
+            labelFigureType.Text = "Pencil";
         }
 
         private void lineToolStripMenuItem_Click(object sender, EventArgs e)
         {
             figureType = 2;
+            labelFigureType.Text = "Line";
         }
 
         private void ellipseToolStripMenuItem_Click(object sender, EventArgs e)
         {
             figureType = 3;
+            labelFigureType.Text = "Ellipse";
         }
 
         private void circleToolStripMenuItem_Click(object sender, EventArgs e)
         {
             figureType = 4;
+            labelFigureType.Text = "Circle";
         }
 
         private void rectangleToolStripMenuItem_Click(object sender, EventArgs e)
         {
             figureType = 5;
+            labelFigureType.Text = "Rectangle";
         }
 
         private void squareToolStripMenuItem1_Click(object sender, EventArgs e)
         {
             figureType = 6;
+            labelFigureType.Text = "Square";
         }
 
         private void rhombusToolStripMenuItem_Click(object sender, EventArgs e)
         {
             figureType = 7;
+            labelFigureType.Text = "Rhombus";
         }
 
         private void pbSketchingArea_Paint(object sender, PaintEventArgs e)
@@ -297,6 +317,7 @@ namespace Laba_1___2
             if (colorDialog.ShowDialog() == DialogResult.OK)
             {
                 color = colorDialog.Color;
+                labelColor.Text = ConvertToHex(color);
                 pen = new Pen(color, thickness);
             }
 
@@ -308,6 +329,12 @@ namespace Laba_1___2
         {
             thickness =  float.Parse(widthToolStripMenuItem.Text);
             pen = new Pen(color, thickness);
+        }
+
+        private void pbSketchingArea_MouseLeave(object sender, EventArgs e)
+        {
+            labelXValue.Text = "";
+            labelYValue.Text = "";
         }
 
     }
