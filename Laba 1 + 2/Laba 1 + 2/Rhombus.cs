@@ -1,0 +1,24 @@
+﻿using System.Drawing;
+
+namespace Laba_1___2
+{
+    public class Rhombus : Figure
+    {
+
+        private Point point2, point3, point4;
+
+        public Rhombus(int x1, int y1, int x2, int y2) : base(x1, y1)
+        {
+            point2 = new Point(x2, y2);
+            point3 = new Point(point1.X, point2.Y + (point2.Y - point1.Y));
+            point4 = new Point(point1.X - (point2.X - point1.X), point2.Y);
+        }
+
+        public override void Draw(Graphics graphics, Pen pen)
+        {
+            Point[] points = { point1, point2, point3, point4 };
+            graphics.DrawPolygon(pen, points);
+        }
+
+    }
+}

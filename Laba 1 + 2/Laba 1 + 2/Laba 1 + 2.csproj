@@ -46,6 +46,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Circle.cs" />
+    <Compile Include="Rhombus.cs" />
     <Compile Include="Ellipse.cs" />
     <Compile Include="Figure.cs" />
     <Compile Include="Main.cs">
@@ -60,7 +61,6 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Rectangle.cs" />
     <Compile Include="Square.cs" />
-    <Compile Include="Triangle.cs" />
     <EmbeddedResource Include="Main.resx">
       <DependentUpon>Main.cs</DependentUpon>
     </EmbeddedResource>

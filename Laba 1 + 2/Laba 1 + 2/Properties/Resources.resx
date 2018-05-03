@@ -118,37 +118,7 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="drawing-pad-1209781_640" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\drawing-pad-1209781_640.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="drawing-pad-1209781_6401" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\drawing-pad-1209781_6401.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="8f37e2d4-f473-11df-a257-00151787ad21.resize1" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\8f37e2d4-f473-11df-a257-00151787ad21.resize1.jpeg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="notebook_texture2464" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\notebook_texture2464.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="9915829" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\9915829.jpeg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="633" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\633.jpeg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="drawing-pad-1209781_12802" type="System.Resources.ResXFileRef, System.Windows.Forms">
+  <data name="demo" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\drawing-pad-1209781_12802.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="drawing-pad-1209781_1280" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\drawing-pad-1209781_1280.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="bumag101" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\bumag101.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="drawing-pad-1209781_12801" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\drawing-pad-1209781_12801.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="drawing-pad-1209779_1280" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\drawing-pad-1209779_1280.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>

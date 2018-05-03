@@ -1,124 +1,265 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
 using System.Drawing.Imaging;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace Laba_1___2
 {
-     public partial class fMain : Form
-     {
+    public partial class fMain : Form
+    {
 
-          public static Bitmap bitmap;
-          public static Graphics graphics;
-          public static Pen pen;
+        private static Bitmap bitmap;
+        private static Graphics graphics;
+        private static Pen pen;
 
-          public fMain()
-          {
-               InitializeComponent();
-               InitializeDrawingArea();
-               ShowFigures();
-          }
+        private bool mouseIsDown = false;
+        private int x1, y1, x2, y2, width, height;
 
-          private void InitializeDrawingArea()
-          {
-               bitmap = new Bitmap(Properties.Resources.drawing_pad_1209781_12802, pbSketchingArea.Width, pbSketchingArea.Height);
-               graphics = Graphics.FromImage(bitmap);
-               pen = new Pen(Color.DarkRed, 2);
-          }
+        private Figure newFigure;
+        private int figureType = 0;
 
-          private void ShowFigures()
-          {
+        private string fileName = "../../Resources/drawing-pad-1209781_12802.jpg";
 
-               ListOfFigures.AddFigure(new Line(100, 200, 250, 200));
-               ListOfFigures.AddFigure(new Rectangle(350, 150, 200, 100));
-               ListOfFigures.AddFigure(new Square(650, 125, 150));
-               ListOfFigures.AddFigure(new Triangle(100, 490, 250, 490, 175, 340));
-               ListOfFigures.AddFigure(new Ellipse(350, 375, 200, 100));
-               ListOfFigures.AddFigure(new Circle(650, 350, 150));
+        public fMain()
+        {
 
-               foreach (Figure figure in ListOfFigures.Expand())
-               {
-                    figure.Draw();
-               }
+            InitializeComponent();
+            InitializeDrawingArea();
 
-               pbSketchingArea.Image = bitmap;
+            ShowFigures();
 
-          }
+        }
 
-          private void quitToolStripMenuItem_Click(object sender, EventArgs e)
-          {
-               Application.Exit();
-          }
+        private void InitializeDrawingArea()
+        {
 
-          private void newToolStripMenuItem_Click(object sender, EventArgs e)
-          {
-               bitmap = new Bitmap(pbSketchingArea.Width, pbSketchingArea.Height);
-               pbSketchingArea.Image = bitmap;
-          }
+            if (fileName.Length != 0)
+            {
+                Image background = Image.FromFile(fileName);
+                bitmap = new Bitmap(background, pbSketchingArea.Width, pbSketchingArea.Height);
+            }
+            else
+                bitmap = new Bitmap(pbSketchingArea.Width, pbSketchingArea.Height);
 
-          private void openToolStripMenuItem_Click(object sender, EventArgs e)
-          {
+            graphics = Graphics.FromImage(bitmap);
+            pbSketchingArea.Image = bitmap;
 
-               openFileDialog.Title = "Open Background";
-               openFileDialog.Filter = "bmp files (*.bmp)|*.bmp|jpg files (*.jpg)|*.jpg|jpeg files (*.jpeg)|*.jpeg|png files (*.png)|*.png|gif files (*.gif)|*.gif";
-               openFileDialog.FilterIndex = 1;
+            pen = new Pen(Color.DarkRed, 2);
 
-               if (openFileDialog.ShowDialog() == DialogResult.OK)
-               {
-                    bitmap = new Bitmap(openFileDialog.FileName);
-                    pbSketchingArea.Image = bitmap;
-               }
-               
-               openFileDialog.Dispose();
+        }
 
-          }
+        private void InitializeWorkingArea()
+        {
+            ListOfFigures.Clear();
+            newFigure = null;
+            figureType = 0;
+        }
 
-          private void saveAsToolStripMenuItem_Click(object sender, EventArgs e)
-          {
+        private void ShowFigures()
+        {
 
-               saveFileDialog.Title = "Save Picture";
-               saveFileDialog.Filter = "bmp files (*.bmp)|*.bmp|jpg files (*.jpg)|*.jpg|jpeg files (*.jpeg)|*.jpeg|png files (*.png)|*.png|gif files (*.gif)|*.gif";
-               saveFileDialog.FilterIndex = 1;
+            ListOfFigures.AddFigures(new Line(100, 200, 250, 200), new Rectangle(350, 150, 200, 100),
+                                     new Square(650, 125, 150), new Rhombus(175, 340, 240, 425),
+                                     new Ellipse(350, 375, 200, 100), new Circle(650, 350, 150));
 
-               if (saveFileDialog.ShowDialog() == DialogResult.OK)
-               {
+            ListOfFigures.DrawFigures(graphics, pen);
 
-                    switch(saveFileDialog.FilterIndex)
-                    {
+        }
 
-                         case 1:
-                              bitmap.Save(saveFileDialog.FileName, ImageFormat.Bmp);
-                              break;
+        private void newToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            fileName = "";
+            InitializeDrawingArea();
+            InitializeWorkingArea();
+        }
 
-                         case 2:
-                              bitmap.Save(saveFileDialog.FileName, ImageFormat.Jpeg);
-                              break;
+        private void openToolStripMenuItem_Click(object sender, EventArgs e)
+        {
 
-                         case 3:
-                              bitmap.Save(saveFileDialog.FileName, ImageFormat.Jpeg);
-                              break;
+            openFileDialog.Title = "Open Background";
+            openFileDialog.Filter = "bmp files (*.bmp)|*.bmp|jpg files (*.jpg)|*.jpg|jpeg files (*.jpeg)|*.jpeg|png files (*.png)|*.png|gif files (*.gif)|*.gif";
+            openFileDialog.FilterIndex = 1;
 
-                         case 4:
-                              bitmap.Save(saveFileDialog.FileName, ImageFormat.Png);
-                              break;
+            if (openFileDialog.ShowDialog() == DialogResult.OK)
+            {
+                fileName = openFileDialog.FileName;
+                InitializeDrawingArea();
+                InitializeWorkingArea();
+            }
 
-                         case 5:
-                              bitmap.Save(saveFileDialog.FileName, ImageFormat.Gif);
-                              break;
+            openFileDialog.Dispose();
 
-                    }
+        }
 
-               }
+        private void saveAsToolStripMenuItem_Click(object sender, EventArgs e)
+        {
 
-               saveFileDialog.Dispose();
+            saveFileDialog.Title = "Save Picture";
+            saveFileDialog.Filter = "bmp files (*.bmp)|*.bmp|jpg files (*.jpg)|*.jpg|jpeg files (*.jpeg)|*.jpeg|png files (*.png)|*.png|gif files (*.gif)|*.gif";
+            saveFileDialog.FilterIndex = 1;
 
-          }
+            if (saveFileDialog.ShowDialog() == DialogResult.OK)
+            {
 
-     }
+                switch (saveFileDialog.FilterIndex)
+                {
+
+                    case 1:
+                        bitmap.Save(saveFileDialog.FileName, ImageFormat.Bmp);
+                        break;
+
+                    case 2:
+                        bitmap.Save(saveFileDialog.FileName, ImageFormat.Jpeg);
+                        break;
+
+                    case 3:
+                        bitmap.Save(saveFileDialog.FileName, ImageFormat.Jpeg);
+                        break;
+
+                    case 4:
+                        bitmap.Save(saveFileDialog.FileName, ImageFormat.Png);
+                        break;
+
+                    case 5:
+                        bitmap.Save(saveFileDialog.FileName, ImageFormat.Gif);
+                        break;
+
+                }
+
+            }
+
+            saveFileDialog.Dispose();
+
+        }
+
+        private void quitToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
+        }
+
+        private void pbSketchingArea_MouseDown(object sender, MouseEventArgs e)
+        {
+
+            mouseIsDown = true;
+
+            x1 = e.X;
+            y1 = e.Y;
+
+        }
+
+        private void pbSketchingArea_MouseMove(object sender, MouseEventArgs e)
+        {
+
+            if (mouseIsDown)
+            {
+
+                x2 = e.X;
+                y2 = e.Y;
+
+                pbSketchingArea.Invalidate();
+
+            }
+
+        }
+
+        private void pbSketchingArea_MouseUp(object sender, MouseEventArgs e)
+        {
+
+            mouseIsDown = false;
+
+            x1 = y1 = x2 = y2 = -1;
+
+            if (newFigure != null)       
+            {
+                ListOfFigures.AddFigures(newFigure);
+            }
+
+        }
+
+        private void freeToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            figureType = 1;
+        }
+
+        private void lineToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            figureType = 2;
+        }
+
+        private void ellipseToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            figureType = 3;
+        }
+
+        private void circleToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            figureType = 4;
+        }
+
+        private void rectangleToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            figureType = 5;
+        }
+
+        private void squareToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            figureType = 6;
+        }
+
+        private void rhombusToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            figureType = 7;
+        }
+
+        private void pbSketchingArea_Paint(object sender, PaintEventArgs e)
+        {
+
+            if (x1 >= 0 && y1 >= 0 && x2 >= 0 && y2 >= 0)
+            {
+
+                width = Math.Abs(x1 - x2);
+                height = Math.Abs(y1 - y2);
+
+                switch (figureType)
+                {
+
+                    case 0:
+                        return;
+
+                    case 2:
+                        newFigure = new Line(x1, y1, x2, y2);
+                        break;
+
+                    case 3:
+                        newFigure = new Ellipse(x1, y1, width, height);
+                        break;
+
+                    case 4:
+                        newFigure = new Circle(x1, y1, (width <= height) ? width : height);
+                        break;
+
+                    case 5:
+                        newFigure = new Rectangle(x1, y1, width, height);
+                        break;
+
+                    case 6:
+                        newFigure = new Square(x1, y1, (width <= height) ? width : height);
+                        break;
+
+                    case 7:
+                        newFigure = new Rhombus(x1, y1, x2, y2);
+                        break;
+
+                }
+
+                InitializeDrawingArea();
+
+                newFigure.Draw(graphics, pen);
+                ListOfFigures.DrawFigures(graphics, pen);
+
+            }
+
+        }
+
+    }
 }

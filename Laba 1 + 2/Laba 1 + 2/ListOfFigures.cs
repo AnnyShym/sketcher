@@ -1,25 +1,47 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Collections.Generic;
+using System.Drawing;
 
 namespace Laba_1___2
 {
-     static class ListOfFigures
-     {
+    public static class ListOfFigures
+    {
 
-          static List<Figure> list = new List<Figure>();
+        private static List<Figure> list;
 
-          public static void AddFigure(Figure figure)
-          {
-               list.Add(figure);
-          }
+        public static int FiguresCount
+        {
+            get { return list.Count; }
+        }
 
-          public static List<Figure> Expand()
-          {
-               return list;
-          }
+        static ListOfFigures()
+        {
+            list = new List<Figure>();
+        }
 
-     }
+        public static void AddFigures(params Figure[] figures)
+        {
+
+            foreach (Figure figure in figures)
+            {
+                list.Add(figure);
+            }
+
+        }
+
+        public static void DrawFigures(Graphics graphics, Pen pen)
+        {
+
+            foreach (Figure figure in list)
+            {
+                figure.Draw(graphics, pen);
+            }
+
+        }
+
+        public static void Clear()
+        {
+            list.Clear();
+        }
+
+    }
 }
