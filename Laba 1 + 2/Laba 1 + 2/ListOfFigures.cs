@@ -28,12 +28,12 @@ namespace Laba_1___2
 
         }
 
-        public static void DrawFigures(Graphics graphics, Pen pen)
+        public static void DrawFigures(Graphics graphics)
         {
 
             foreach (Figure figure in list)
             {
-                figure.Draw(graphics, pen);
+                figure.Draw(graphics);
             }
 
         }

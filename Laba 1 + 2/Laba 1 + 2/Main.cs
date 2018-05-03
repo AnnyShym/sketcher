@@ -8,9 +8,15 @@ namespace Laba_1___2
     public partial class fMain : Form
     {
 
-        private static Bitmap bitmap;
-        private static Graphics graphics;
-        private static Pen pen;
+        private Bitmap bitmap;
+        private Graphics graphics;
+        private Pen pen;
+
+        private readonly Color standardColor = Color.DarkRed;
+        private readonly float standardThickness = 2;
+
+        private Color color = Color.DarkRed;
+        private float thickness = 2;
 
         private bool mouseIsDown = false;
         private int x1, y1, x2, y2, width, height;
@@ -25,6 +31,7 @@ namespace Laba_1___2
 
             InitializeComponent();
             InitializeDrawingArea();
+            pen = new Pen(color, thickness);
 
             ShowFigures();
 
@@ -44,25 +51,29 @@ namespace Laba_1___2
             graphics = Graphics.FromImage(bitmap);
             pbSketchingArea.Image = bitmap;
 
-            pen = new Pen(Color.DarkRed, 2);
-
         }
 
         private void InitializeWorkingArea()
         {
+
             ListOfFigures.Clear();
             newFigure = null;
             figureType = 0;
+
+            color = standardColor;
+            thickness = standardThickness;
+            pen = new Pen(color, thickness);
+
         }
 
         private void ShowFigures()
         {
 
-            ListOfFigures.AddFigures(new Line(100, 200, 250, 200), new Rectangle(350, 150, 200, 100),
-                                     new Square(650, 125, 150), new Rhombus(175, 340, 240, 425),
-                                     new Ellipse(350, 375, 200, 100), new Circle(650, 350, 150));
+            ListOfFigures.AddFigures(new Line(100, 200, 250, 200, pen), new Rectangle(350, 150, 200, 100, pen),
+                                     new Square(650, 125, 150, pen), new Rhombus(175, 340, 240, 425, pen),
+                                     new Ellipse(350, 375, 200, 100, pen), new Circle(650, 350, 150, pen));
 
-            ListOfFigures.DrawFigures(graphics, pen);
+            ListOfFigures.DrawFigures(graphics);
 
         }
 
@@ -233,7 +244,7 @@ namespace Laba_1___2
                         return;
 
                     case 1:
-                        newFigure = new Line(x1, y1, x2, y2);
+                        newFigure = new Line(x1, y1, x2, y2, pen);
 
                         if (newFigure != null)
                         {
@@ -243,27 +254,27 @@ namespace Laba_1___2
                         break;
 
                     case 2:
-                        newFigure = new Line(x1, y1, x2, y2);
+                        newFigure = new Line(x1, y1, x2, y2, pen);
                         break;
 
                     case 3:
-                        newFigure = new Ellipse(x1, y1, width, height);
+                        newFigure = new Ellipse(x1, y1, width, height, pen);
                         break;
 
                     case 4:
-                        newFigure = new Circle(x1, y1, (width <= height) ? width : height);
+                        newFigure = new Circle(x1, y1, (width <= height) ? width : height, pen);
                         break;
 
                     case 5:
-                        newFigure = new Rectangle(x1, y1, width, height);
+                        newFigure = new Rectangle(x1, y1, width, height, pen);
                         break;
 
                     case 6:
-                        newFigure = new Square(x1, y1, (width <= height) ? width : height);
+                        newFigure = new Square(x1, y1, (width <= height) ? width : height, pen);
                         break;
 
                     case 7:
-                        newFigure = new Rhombus(x1, y1, x2, y2);
+                        newFigure = new Rhombus(x1, y1, x2, y2, pen);
                         break;
 
                 }
@@ -271,13 +282,32 @@ namespace Laba_1___2
                 if (figureType != 1)
                 {
                     InitializeDrawingArea();
-                    ListOfFigures.DrawFigures(graphics, pen);
+                    ListOfFigures.DrawFigures(graphics);
                 }
 
-                newFigure.Draw(graphics, pen);
+                newFigure.Draw(graphics);
 
             }
 
+        }
+
+        private void colorToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+            if (colorDialog.ShowDialog() == DialogResult.OK)
+            {
+                color = colorDialog.Color;
+                pen = new Pen(color, thickness);
+            }
+
+            colorDialog.Dispose();
+
+        }
+
+        private void widthToolStripMenuItem_MouseLeave(object sender, EventArgs e)
+        {
+            thickness =  float.Parse(widthToolStripMenuItem.Text);
+            pen = new Pen(color, thickness);
         }
 
     }
