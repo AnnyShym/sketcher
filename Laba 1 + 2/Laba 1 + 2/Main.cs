@@ -142,8 +142,8 @@ namespace Laba_1___2
 
             mouseIsDown = true;
 
-            x1 = e.X;
-            y1 = e.Y;
+            x1 = x2 = e.X;
+            y1 = y2 = e.Y;
 
         }
 
@@ -152,6 +152,12 @@ namespace Laba_1___2
 
             if (mouseIsDown)
             {
+
+                if (figureType == 1)
+                {
+                    x1 = x2;
+                    y1 = y2;
+                }
 
                 x2 = e.X;
                 y2 = e.Y;
@@ -169,7 +175,7 @@ namespace Laba_1___2
 
             x1 = y1 = x2 = y2 = -1;
 
-            if (newFigure != null)       
+            if (newFigure != null && figureType != 1)       
             {
                 ListOfFigures.AddFigures(newFigure);
             }
@@ -226,6 +232,16 @@ namespace Laba_1___2
                     case 0:
                         return;
 
+                    case 1:
+                        newFigure = new Line(x1, y1, x2, y2);
+
+                        if (newFigure != null)
+                        {
+                            ListOfFigures.AddFigures(newFigure);
+                        }
+
+                        break;
+
                     case 2:
                         newFigure = new Line(x1, y1, x2, y2);
                         break;
@@ -252,10 +268,13 @@ namespace Laba_1___2
 
                 }
 
-                InitializeDrawingArea();
+                if (figureType != 1)
+                {
+                    InitializeDrawingArea();
+                    ListOfFigures.DrawFigures(graphics, pen);
+                }
 
                 newFigure.Draw(graphics, pen);
-                ListOfFigures.DrawFigures(graphics, pen);
 
             }
 
